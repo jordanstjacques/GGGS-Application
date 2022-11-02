@@ -13,89 +13,37 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
     }
 
-    // Creating a function to show the menu
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
-        return true
+    // Creating the top options menu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu_top,menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
-    // Handling what happens if the menu items are clicked
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle item selection
-        return when (item.itemId) {
-            // If the menu icon was pressed
-            R.id.app_menu -> {
-                true
-            }
+    // ------------------------------------------ Functions For Changing The Screens Through The Buttom Menu -----------------------------------------
+    // What to do when the Home option is clicked
+    fun onClickingHomePage(item: MenuItem) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 
-            // ------------ If any of the menu options are clicked a new activity opens up ---------
-            // Opening the home page activity
-            R.id.home_page -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                true
-            }
 
-            // Opening the about page activity
-            R.id.about_page -> {
-                val intent = Intent(this, AboutActivity::class.java)
-                startActivity(intent)
-                true
-            }
+    // What to do when the Rent A Lawn option is clicked
+    fun onClickingRentALawnPage (item: MenuItem) {
+        val intent = Intent(this, RentALawnActivity::class.java)
+        startActivity(intent)
+    }
 
-            // Opening the featured houses page activity
-            R.id.featured_houses_page -> {
-                val intent = Intent(this, FeaturedHousesActivity::class.java)
-                startActivity(intent)
-                true
-            }
+    // What to do when the Featured Houses option is clicked
+    fun onClickingFeaturedHousesPage(item: MenuItem) {
+        val intent = Intent(this, FeaturedHousesActivity::class.java)
+        startActivity(intent)
+    }
 
-            // Opening the bank st merchants page activity
-            R.id.bank_st_merchants_page -> {
-                val intent = Intent(this, BankStMerchantsActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            // Opening the bank st merchants page activity
-            R.id.bank_st_merchants_page -> {
-                val intent = Intent(this, BankStMerchantsActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            // Opening the rent a lawn page activity
-            R.id.rent_a_lawn_page -> {
-                val intent = Intent(this, RentALawnActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            // Opening the shop page activity
-            R.id.shop_page -> {
-                val intent = Intent(this, ShopActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            // Opening the blog page activity
-            R.id.blog_page -> {
-                val intent = Intent(this, BlogActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            // Opening the contact page activity
-            R.id.contact_page -> {
-                val intent = Intent(this, ContactActivity::class.java)
-                startActivity(intent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+    // What to do when the Contact option is clicked
+    fun onClickedContactPage(item: MenuItem) {
+        val intent = Intent(this, ContactActivity::class.java)
+        startActivity(intent)
     }
 }
