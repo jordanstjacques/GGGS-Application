@@ -7,13 +7,59 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.HorizontalScrollView
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    // Creating lateinit variables
+    private lateinit var serviceSlidesRecyclerView : RecyclerView
+    private lateinit var slideArrayList : ArrayList<ServiceSlide>
+    lateinit var servicesNames : Array <String>
+    lateinit var servicesDescription : Array <String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Initializing arrays with the info that will be displayed on slides
+
+        servicesNames = arrayOf (
+            "Featured Houses",
+            "Bank St Merchants",
+            "Branded Sponsorship"
+        )
+
+        servicesDescription = arrayOf (
+            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
+                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
+            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
+                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
+            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
+                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
+        )
+
+        serviceSlidesRecyclerView = findViewById(R.id.ServicesSlidesRecView)
+        serviceSlidesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        serviceSlidesRecyclerView.setHasFixedSize(true)
+
+        slideArrayList = arrayListOf<ServiceSlide>()
+        getUserData()
     }
+
+    private fun getUserData () {
+        for(i in servicesNames.indices) {
+            val slide  = ServiceSlide(servicesNames[i], servicesDescription[i])
+            slideArrayList.add(slide)
+        }
+
+        serviceSlidesRecyclerView.adapter = ServicesSlidesAdapter(slideArrayList)
+    }
+
+    // ------------------------------------------- Creating the RecyclerView with more info on Major pages ---------------------------------------------
+
 
     // Creating the top options menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
