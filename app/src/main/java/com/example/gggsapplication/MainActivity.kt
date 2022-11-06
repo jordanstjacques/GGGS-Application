@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    // ------------------------------------------ Functions For Changing The Screens Through The Buttom Menu -----------------------------------------
+    // ------------------------------------------ Functions For Changing The Screens Through The Bottom Menu -----------------------------------------
     // What to do when the Home option is clicked
     fun onClickingHomePage(item: MenuItem) {
         val intent = Intent(this, MainActivity::class.java)
