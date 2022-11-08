@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "145293051814",
+    "project_id": "gggsapplication",
+    "storage_bucket": "gggsapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145293051814:android:6735460ecc2aa0eb157167",
+        "android_client_info": {
+          "package_name": "com.example.gggsapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145293051814-rqgtbj454o773ljjlpg5auif85g6urri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnWStLnJc1Z-FhHNN9KSpBHg862Zwky-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145293051814-rqgtbj454o773ljjlpg5auif85g6urri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
