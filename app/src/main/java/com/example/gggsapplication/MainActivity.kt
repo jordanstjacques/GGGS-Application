@@ -67,6 +67,13 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    // ------------------------------------------ Functions For Changing The Screens Through The Top Menu -----------------------------------------
+    // What to do when the sign in page is clicked
+    fun onClickingSignIn(item: MenuItem) {
+        val intent = Intent(this, SignUpActivity::class.java)
+        startActivity(intent)
+    }
+
     // ------------------------------------------ Functions For Changing The Screens Through The Bottom Menu -----------------------------------------
     // What to do when the Home option is clicked
     fun onClickingHomePage(item: MenuItem) {

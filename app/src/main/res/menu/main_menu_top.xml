@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id = "@+id/signIn"
-        android:title="Home"
-        android:icon="@drawable/ic_shop"
-        app:showAsAction="ifRoom"/>
     <item android:id = "@+id/shopIcon"
-        android:icon="@drawable/ic_account_sign_in"
-        android:title="RENT-A-LAWN"
+        android:icon="@drawable/ic_shop"
+        android:title="Shop"
         app:showAsAction="ifRoom"/>
+    <item android:id = "@+id/signIn"
+        android:title="Sign In"
+        android:icon="@drawable/ic_account_sign_in"
+        app:showAsAction="ifRoom"
+        android:onClick="onClickingSignIn"/>
 </menu>
