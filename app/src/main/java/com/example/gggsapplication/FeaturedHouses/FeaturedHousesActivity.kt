@@ -1,17 +1,29 @@
-package com.example.gggsapplication
+package com.example.gggsapplication.FeaturedHouses
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import com.example.gggsapplication.FeaturedHouses.FeaturedHousesActivity
+import com.example.gggsapplication.ContactActivity
+import com.example.gggsapplication.MainActivity
 import com.example.gggsapplication.RentALawn.RentALawnActivity
+import com.example.gggsapplication.databinding.ActivityFeaturedHousesBinding
 
-class ContactActivity : AppCompatActivity() {
+class FeaturedHousesActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFeaturedHousesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact)
+        binding = ActivityFeaturedHousesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // ---- Mangaing the button for adding your own house to the listing -------
+        binding.btnAddHouse.setOnClickListener {
+            val intent = Intent(this, AddingFeaturedHouse::class.java)
+            startActivity(intent)
+        }
+
     }
+
 
     // ------------------------------------------ Functions For Changing The Screens Through The Bottom Menu -----------------------------------------
     // What to do when the Home option is clicked

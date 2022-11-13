@@ -1,17 +1,14 @@
 package com.example.gggsapplication
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.HorizontalScrollView
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gggsapplication.FeaturedHouses.FeaturedHousesActivity
+import com.example.gggsapplication.RentALawn.RentALawnActivity
 
 class MainActivity : AppCompatActivity() {
     // Creating lateinit variables

@@ -1,16 +1,24 @@
-package com.example.gggsapplication
+package com.example.gggsapplication.RentALawn
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import com.example.gggsapplication.ContactActivity
 import com.example.gggsapplication.FeaturedHouses.FeaturedHousesActivity
-import com.example.gggsapplication.RentALawn.RentALawnActivity
+import com.example.gggsapplication.MainActivity
+import com.example.gggsapplication.databinding.ActivityRentAlawnBinding
 
-class ContactActivity : AppCompatActivity() {
+class RentALawnActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityRentAlawnBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact)
+        binding = ActivityRentAlawnBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnAddLawn.setOnClickListener {
+
+        }
     }
 
     // ------------------------------------------ Functions For Changing The Screens Through The Bottom Menu -----------------------------------------
