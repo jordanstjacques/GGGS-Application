@@ -17,7 +17,8 @@ class RentALawnActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnAddLawn.setOnClickListener {
-
+            val intent = Intent(this, ListALawnActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -27,7 +28,6 @@ class RentALawnActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-
 
     // What to do when the Rent A Lawn option is clicked
     fun onClickingRentALawnPage (item: MenuItem) {
