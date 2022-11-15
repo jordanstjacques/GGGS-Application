@@ -13,7 +13,7 @@ import com.example.gggsapplication.RentALawn.RentALawnActivity
 class MainActivity : AppCompatActivity() {
     // Creating lateinit variables
     private lateinit var serviceSlidesRecyclerView : RecyclerView
-    private lateinit var slideArrayList : ArrayList<ServiceSlide>
+    private lateinit var slideArrayList : ArrayList<NewsSlide>
     lateinit var servicesNames : Array <String>
     lateinit var servicesDescription : Array <String>
 
@@ -42,13 +42,13 @@ class MainActivity : AppCompatActivity() {
         serviceSlidesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         serviceSlidesRecyclerView.setHasFixedSize(true)
 
-        slideArrayList = arrayListOf<ServiceSlide>()
+        slideArrayList = arrayListOf<NewsSlide>()
         getUserData()
     }
 
     private fun getUserData () {
         for(i in servicesNames.indices) {
-            val slide  = ServiceSlide(servicesNames[i], servicesDescription[i])
+            val slide  = NewsSlide(servicesNames[i], servicesDescription[i])
             slideArrayList.add(slide)
         }
 

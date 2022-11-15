@@ -17,55 +17,53 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffff"
             tools:context=".MainActivity">
 
             <LinearLayout
                 android:id="@+id/home_page_info_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/peach"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/HomeIntroduction"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/homepicgarageview"
                     android:elevation="50dp"
                     android:padding="10dp"
-                    app:cardBackgroundColor="#e8e8e8"
-                    app:cardCornerRadius="20dp">
+                    app:cardBackgroundColor="@color/peach"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="500dp">
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/HomeTitle"
+                        <ImageView
+                            android:id="@+id/imageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="General Info"
-                            android:textColor="@android:color/black"
-                            android:textSize="30sp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.127"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/homepicgarageview" />
 
-                        <TextView
-                            android:id="@+id/HomeInfo"
-                            android:layout_width="match_parent"
-                            android:layout_height="335dp"
-                            android:layout_margin="16dp"
-                            android:text="blah blah blah blah blah"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.491"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/HomeTitle"
-                            app:layout_constraintVertical_bias="0.137" />
-
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/imageView"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.493"
+                            app:srcCompat="@drawable/homepic" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -74,7 +72,7 @@
                     android:id="@+id/ServicesSlidesRecView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="25dp"/>
+                    android:layout_marginBottom="40dp" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

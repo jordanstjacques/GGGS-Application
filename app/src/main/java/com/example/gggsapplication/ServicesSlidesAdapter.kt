@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // Creating an adapter for the recycler view on the homepage
-class ServicesSlidesAdapter (private val slideList : ArrayList<ServiceSlide>) :
+class ServicesSlidesAdapter (private val slideList : ArrayList<NewsSlide>) :
     RecyclerView.Adapter<ServicesSlidesAdapter.MyViewHolder>() {
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val slideTitle : TextView = itemView.findViewById(R.id.ServiceNametv)
@@ -15,7 +15,7 @@ class ServicesSlidesAdapter (private val slideList : ArrayList<ServiceSlide>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.service_item,
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.news_item,
             parent, false)
         return MyViewHolder(itemView)
     }
