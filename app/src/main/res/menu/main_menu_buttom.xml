@@ -3,18 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id = "@+id/home_page"
         android:title="Home"
-        android:icon="@drawable/ic_main_page"
-        android:onClick="onClickingHomePage"/>
+        android:icon="@drawable/ic_main_page" />
     <item android:id = "@+id/rent_a_lawn_page"
         android:icon="@drawable/ic_rent_a_lawn"
-        android:title="Rent-A-Lawn"
-        android:onClick="onClickingRentALawnPage"/>
+        android:title="Rent-A-Lawn" />
     <item android:id = "@+id/featured_houses_page"
         android:icon="@drawable/ic_featured_houses"
-        android:title="Featured Houses"
-        android:onClick="onClickingFeaturedHousesPage"/>
+        android:title="Featured Houses" />
     <item android:id = "@+id/contact_page"
         android:title="Contact"
-        android:icon="@drawable/ic_contact_icon"
-        android:onClick="onClickedContactPage"/>
+        android:icon="@drawable/ic_contact_icon" />
 </menu>

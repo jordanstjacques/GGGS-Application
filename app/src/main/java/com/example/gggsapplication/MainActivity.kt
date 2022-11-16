@@ -5,95 +5,54 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gggsapplication.FeaturedHouses.FeaturedHousesActivity
-import com.example.gggsapplication.RentALawn.RentALawnActivity
+import com.example.gggsapplication.Fragments.ContactFragment
+import com.example.gggsapplication.Fragments.FeaturedHousesFragment
+import com.example.gggsapplication.Fragments.HomeFragment
+import com.example.gggsapplication.Fragments.RentALawnFragment
+import com.example.gggsapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     // Creating lateinit variables
     private lateinit var serviceSlidesRecyclerView : RecyclerView
-    private lateinit var slideArrayList : ArrayList<NewsSlide>
-    lateinit var servicesNames : Array <String>
-    lateinit var servicesDescription : Array <String>
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Initializing arrays with the info that will be displayed on slides
+        replaceFragment(HomeFragment())
 
-        servicesNames = arrayOf (
-            "Featured Houses",
-            "Bank St Merchants",
-            "Branded Sponsorship"
-        )
-
-        servicesDescription = arrayOf (
-            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
-                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
-            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
-                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
-            "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah" +
-                    "blahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablahblahblahblahblbhablah",
-        )
-
-        serviceSlidesRecyclerView = findViewById(R.id.ServicesSlidesRecView)
-        serviceSlidesRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        serviceSlidesRecyclerView.setHasFixedSize(true)
-
-        slideArrayList = arrayListOf<NewsSlide>()
-        getUserData()
-    }
-
-    private fun getUserData () {
-        for(i in servicesNames.indices) {
-            val slide  = NewsSlide(servicesNames[i], servicesDescription[i])
-            slideArrayList.add(slide)
+        binding.bottomNavMenu.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.home_page -> replaceFragment(HomeFragment())
+                R.id.rent_a_lawn_page -> replaceFragment(RentALawnFragment())
+                R.id.featured_houses_page -> replaceFragment(FeaturedHousesFragment())
+                R.id.contact_page -> replaceFragment(ContactFragment())
+            }
+            true
         }
-
-        serviceSlidesRecyclerView.adapter = ServicesSlidesAdapter(slideArrayList)
     }
-
-    // ------------------------------------------- Creating the RecyclerView with more info on Major pages ---------------------------------------------
-
+    // ---------------- Creating a function for switching fragments -----------------
+    private fun replaceFragment (fragment : Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+    }
 
     // Creating the top options menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu_top,menu)
         return super.onCreateOptionsMenu(menu)
     }
-
     // ------------------------------------------ Functions For Changing The Screens Through The Top Menu -----------------------------------------
     // What to do when the sign in page is clicked
     fun onClickingSignIn(item: MenuItem) {
         val intent = Intent(this, SignUpActivity::class.java)
-        startActivity(intent)
-    }
-
-    // ------------------------------------------ Functions For Changing The Screens Through The Bottom Menu -----------------------------------------
-    // What to do when the Home option is clicked
-    fun onClickingHomePage(item: MenuItem) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-
-    // What to do when the Rent A Lawn option is clicked
-    fun onClickingRentALawnPage (item: MenuItem) {
-        val intent = Intent(this, RentALawnActivity::class.java)
-        startActivity(intent)
-    }
-
-    // What to do when the Featured Houses option is clicked
-    fun onClickingFeaturedHousesPage(item: MenuItem) {
-        val intent = Intent(this, FeaturedHousesActivity::class.java)
-        startActivity(intent)
-    }
-
-    // What to do when the Contact option is clicked
-    fun onClickedContactPage(item: MenuItem) {
-        val intent = Intent(this, ContactActivity::class.java)
         startActivity(intent)
     }
 }

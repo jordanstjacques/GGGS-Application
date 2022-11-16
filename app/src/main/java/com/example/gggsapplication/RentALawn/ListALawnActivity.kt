@@ -24,7 +24,7 @@ class ListALawnActivity : AppCompatActivity() {
             val Description = binding.NewLawnDescription.text.toString()
 
             database = FirebaseDatabase.getInstance().getReference("RentALawn")
-            val FeaturedHouse = FeaturedHouse(Address, Description)
+            val FeaturedHouse = Lawn(Address, Description)
             database.child(Address).setValue(FeaturedHouse).addOnSuccessListener {
                 binding.NewLawnAddress.text?.clear()
                 binding.NewLawnDescription.text?.clear()

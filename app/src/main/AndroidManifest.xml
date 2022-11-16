@@ -44,13 +44,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ContactActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".BlogActivity"
             android:exported="false" >
             <meta-data
@@ -65,21 +58,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".RentALawn.RentALawnActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".BankStMerchantsActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".FeaturedHouses.FeaturedHousesActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
