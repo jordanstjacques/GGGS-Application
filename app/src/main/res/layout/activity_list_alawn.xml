@@ -56,6 +56,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:layout_width="wrap_content"
+                android:text="Upload Image"
+                android:layout_height="wrap_content"
+                android:id="@+id/uploadLawnImage"
+                android:layout_gravity="center_horizontal"/>
+
+            <Button
                 android:id="@+id/SubmitLawnInfoBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
