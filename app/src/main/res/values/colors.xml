@@ -7,8 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="peach">#FFF4F1</color>
+    <color name="peach">#F8A187</color>
     <color name="brownishOrange">#CC5D40</color>
     <color name = "orange">#F0633E</color>
     <color name = "bluish">#30B9F6</color>
+    <color name = "mainActivityBackground">#F8A187</color>
 </resources>
