@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "145293051814",
+    "firebase_url": "https://gggsapplication-default-rtdb.firebaseio.com",
     "project_id": "gggsapplication",
     "storage_bucket": "gggsapplication.appspot.com"
   },

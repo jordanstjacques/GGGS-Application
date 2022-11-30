@@ -7,11 +7,25 @@
     tools:context=".FeaturedHouses.AddingFeaturedHouse">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/GettingOwnersName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/GettingAddressOfNewHouse"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/OwnersName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Owner's Name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/GettingAddressOfNewHouse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/GettingDescriptionOfNewHouse"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/GettingOwnersName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/NewHouseAddress"
@@ -106,6 +120,13 @@
     </com.google.android.flexbox.FlexboxLayout>
 
     <Button
+        android:id="@+id/UploadHouseImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        app:layout_constraintTop_toBottomOf="@+id/TagGrid"/>
+
+    <Button
         android:id="@+id/SubmitHouseInfoBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,7 +134,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TagGrid" />
+        app:layout_constraintTop_toBottomOf="@+id/UploadHouseImageButton" />
+
 
 
 
