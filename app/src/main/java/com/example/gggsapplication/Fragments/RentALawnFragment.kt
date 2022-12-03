@@ -25,7 +25,7 @@ import com.google.firebase.database.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-//This nightmare is over
+//It was fixxed!!!!
 private lateinit var databaseReference : DatabaseReference
 private lateinit var lawnArrayList : ArrayList<LawnListing>
 private lateinit var lawnImageList : ArrayList<ListingImage>
