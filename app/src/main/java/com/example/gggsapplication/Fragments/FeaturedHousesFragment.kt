@@ -6,10 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gggsapplication.FeaturedHouses.AddingFeaturedHouse
+import com.example.gggsapplication.FeaturedHouses.FeaturedHomeAdapter
+import com.example.gggsapplication.FeaturedHouses.FeaturedHouse
 import com.example.gggsapplication.R
 import com.example.gggsapplication.RentALawn.ListALawnActivity
 import com.example.gggsapplication.databinding.FragmentFeaturedHousesBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.getValue
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,14 +35,37 @@ class FeaturedHousesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var featuredHouses = mutableListOf<FeaturedHouse>()
     private lateinit var binding: FragmentFeaturedHousesBinding
+    private lateinit var featuredHomeAdapter: FeaturedHomeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        var databaseReference = FirebaseDatabase.getInstance().getReference("FeaturedHouses")
+        //val featuredHouses = databaseReference.orderByChild("uid")
+        //println(featuredHouses)
+        databaseReference.addValueEventListener(object : ValueEventListener {
+           override fun onDataChange(snapshot: DataSnapshot) {
+               if (snapshot.exists()) {
+                   featuredHouses.clear()
+                   println("on data change called nithin")
+                   for (featuredHouseSnapshot in snapshot.children) {
+                       featuredHouseSnapshot.getValue<FeaturedHouse>()
+                           ?.let { featuredHouses.add(it) }
+                   }
+               }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                //Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+
+        })
+        featuredHomeAdapter = FeaturedHomeAdapter(featuredHouses)
+        binding.FeaturedHousesRecyclerView.setHasFixedSize(true)
+        binding.FeaturedHousesRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.FeaturedHousesRecyclerView.adapter = featuredHomeAdapter
     }
 
     override fun onCreateView(
@@ -40,12 +73,23 @@ class FeaturedHousesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentFeaturedHousesBinding.inflate(layoutInflater)
+        val user = FirebaseAuth.getInstance().currentUser
         binding.btnAddHouse.setOnClickListener{
-            val intent = Intent(this@FeaturedHousesFragment.requireContext(), AddingFeaturedHouse::class.java)
-            startActivity(intent)
+            if (user != null) {
+                val intent = Intent(
+                    this@FeaturedHousesFragment.requireContext(),
+                    AddingFeaturedHouse::class.java
+                )
+                startActivity(intent)
+            } else {
+                Toast.makeText(this@FeaturedHousesFragment.requireContext(),
+                    "Please sign-in or sign-up before adding a featured house",
+                    Toast.LENGTH_SHORT).show()
+            }
         }
         return binding.root
     }
+
 
     companion object {
         /**

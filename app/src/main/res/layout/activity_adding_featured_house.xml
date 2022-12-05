@@ -1,142 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FeaturedHouses.AddingFeaturedHouse">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/GettingOwnersName"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/GettingAddressOfNewHouse"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".FeaturedHouses.AddingFeaturedHouse">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/OwnersName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GettingOwnersName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Owner's Name" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toTopOf="@+id/GettingAddressOfNewHouse"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/GettingAddressOfNewHouse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/GettingDescriptionOfNewHouse"
-        app:layout_constraintTop_toBottomOf="@+id/GettingOwnersName">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/OwnersName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Owner's Name" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NewHouseAddress"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GettingAddressOfNewHouse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter The Address" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toTopOf="@+id/GettingDescriptionOfNewHouse"
+            app:layout_constraintTop_toBottomOf="@+id/GettingOwnersName">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/GettingDescriptionOfNewHouse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/TagChooseInstruction"
-        app:layout_constraintTop_toBottomOf="@id/GettingAddressOfNewHouse">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NewHouseAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter The Address" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NewHouseDescription"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GettingDescriptionOfNewHouse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter a description" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toTopOf="@+id/TagChooseInstruction"
+            app:layout_constraintTop_toBottomOf="@id/GettingAddressOfNewHouse">
 
-    <TextView
-        android:id="@+id/TagChooseInstruction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/TagGrid"
-        app:layout_constraintTop_toBottomOf="@+id/GettingAddressOfNewHouse"
-        android:text="Choose items on Sale:" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NewHouseDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter a description" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.flexbox.FlexboxLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/TagGrid"
-        app:layout_constraintTop_toBottomOf="@+id/TagChooseInstruction"
-        app:flexWrap="wrap"
-        app:justifyContent="space_between"
-        app:alignItems="stretch"
-        app:alignContent="stretch" >
+        <TextView
+            android:id="@+id/TagChooseInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/TagGrid"
+            app:layout_constraintTop_toBottomOf="@+id/GettingAddressOfNewHouse"
+            android:text="Choose items on Sale:" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TagGrid"
+            app:layout_constraintTop_toBottomOf="@+id/TagChooseInstruction"
+            app:flexWrap="wrap"
+            app:justifyContent="space_between"
+            app:alignItems="stretch"
+            app:alignContent="stretch" >
+
+            <Button
+                android:id="@+id/tag1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="tagButtonClicked"
+                android:text="tag1"/>
+
+            <Button
+                android:id="@+id/tag2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="tagButtonClicked"
+                android:text="taaaaaaaaag2" />
+
+            <Button
+                android:id="@+id/tag3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="tag3" />
+
+            <Button
+                android:id="@+id/tag4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="taaaaaaaag4" />
+
+            <Button
+                android:id="@+id/tag5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="taaaaaaag5" />
+
+            <Button
+                android:id="@+id/tag6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="tag6" />
+
+            <Button
+                android:id="@+id/tag7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="tag7" />
+        </com.google.android.flexbox.FlexboxLayout>
 
         <Button
-            android:id="@+id/tag1"
+            android:id="@+id/UploadHouseImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="tag1 +" />
+            android:text="Upload Image"
+            app:layout_constraintTop_toBottomOf="@+id/TagGrid"/>
 
         <Button
-            android:id="@+id/tag2"
+            android:id="@+id/SubmitHouseInfoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="taaaaaaaaag2 +" />
-
-        <Button
-            android:id="@+id/tag3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="tag3 +" />
-
-        <Button
-            android:id="@+id/tag4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="taaaaaaaag4 +" />
-
-        <Button
-            android:id="@+id/tag5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="taaaaaaag5 +" />
-
-        <Button
-            android:id="@+id/tag6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="tag6 +" />
-
-        <Button
-            android:id="@+id/tag7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="tag7 +" />
-    </com.google.android.flexbox.FlexboxLayout>
-
-    <Button
-        android:id="@+id/UploadHouseImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload Image"
-        app:layout_constraintTop_toBottomOf="@+id/TagGrid"/>
-
-    <Button
-        android:id="@+id/SubmitHouseInfoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UploadHouseImageButton" />
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UploadHouseImageButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
