@@ -41,6 +41,10 @@ class FeaturedHousesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = FragmentFeaturedHousesBinding.inflate(layoutInflater)
+        featuredHomeAdapter = context?.let { FeaturedHomeAdapter(featuredHouses, it) }!!
+        binding.FeaturedHousesRecyclerView.adapter = featuredHomeAdapter
+
         var databaseReference = FirebaseDatabase.getInstance().getReference("FeaturedHouses")
         //val featuredHouses = databaseReference.orderByChild("uid")
         //println(featuredHouses)
@@ -52,6 +56,7 @@ class FeaturedHousesFragment : Fragment() {
                    for (featuredHouseSnapshot in snapshot.children) {
                        featuredHouseSnapshot.getValue<FeaturedHouse>()
                            ?.let { featuredHouses.add(it) }
+                       featuredHomeAdapter.notifyDataSetChanged()
                    }
                }
             }
@@ -62,19 +67,16 @@ class FeaturedHousesFragment : Fragment() {
             }
 
         })
-        featuredHomeAdapter = FeaturedHomeAdapter(featuredHouses)
-        binding.FeaturedHousesRecyclerView.setHasFixedSize(true)
-        binding.FeaturedHousesRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.FeaturedHousesRecyclerView.adapter = featuredHomeAdapter
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFeaturedHousesBinding.inflate(layoutInflater)
+
         val user = FirebaseAuth.getInstance().currentUser
-        binding.btnAddHouse.setOnClickListener{
+        binding.fab.setOnClickListener{
             if (user != null) {
                 val intent = Intent(
                     this@FeaturedHousesFragment.requireContext(),
