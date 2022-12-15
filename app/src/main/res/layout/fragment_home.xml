@@ -74,7 +74,8 @@
                     android:id="@+id/NewsSlidesRecView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="40dp" />
+                    android:layout_marginBottom="40dp"
+                    tools:listitem="@layout/news_item" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

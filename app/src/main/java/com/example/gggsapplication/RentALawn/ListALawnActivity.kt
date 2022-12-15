@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -20,7 +21,7 @@ import com.google.firebase.storage.StorageReference
 class ListALawnActivity : AppCompatActivity() {
     private lateinit var binding : ActivityListAlawnBinding
     private lateinit var database: DatabaseReference
-    val ImageBack = 1
+    private val ImageBack = 1
     lateinit var storage : StorageReference
     lateinit var firstName : String
     lateinit var lastName : String
@@ -33,7 +34,7 @@ class ListALawnActivity : AppCompatActivity() {
         // -------- Creating a variable to store users first and last name
 
         // making sure the uploading button is not visible until the user finished filling in his credentials
-        binding.uploadingLawnImage.isVisible = false
+        binding.uploadingLawnImage.visibility = View.GONE
         // -------------------------- Managing the Submit button ---------------------------------
         binding.SubmitLawnInfoBtn.setOnClickListener {
             // --------------- Getting all of the values from the input fields ------------------
@@ -49,16 +50,16 @@ class ListALawnActivity : AppCompatActivity() {
             if (firstName.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()
                 && address.isNotEmpty() && hours.isNotEmpty() && price.isNotEmpty()) {
                 database = FirebaseDatabase.getInstance().getReference("RentALawn")
-                val ListedLawn = Lawn(email, phone, address, hours, price)
-                database.child("$firstName $lastName").setValue(ListedLawn).addOnSuccessListener {
+                val listedLawn = Lawn(email, phone, address, hours, price)
+                database.child("$firstName $lastName").setValue(listedLawn).addOnSuccessListener {
 
                 }.addOnFailureListener {
 
                 }
-                binding.uploadingLawnImage.isVisible = true;
+                binding.uploadingLawnImage.visibility = View.VISIBLE;
             }
             else {
-                Toast.makeText(this, "You forgot to fill out one of the fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "You forgot to fill out one of the fields!", Toast.LENGTH_SHORT).show()
             }
         }
 

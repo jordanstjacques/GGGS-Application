@@ -71,7 +71,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/textView19"
+                            android:id="@+id/listedLawnOwnertv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="25dp"
@@ -93,7 +93,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/textView21"
+                            android:id="@+id/listedLawnEmailtv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="25dp"
@@ -115,7 +115,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/textView23"
+                            android:id="@+id/listedLawnPhonetv"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="25dp"

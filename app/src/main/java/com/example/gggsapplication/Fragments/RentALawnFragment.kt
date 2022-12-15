@@ -25,10 +25,11 @@ import com.google.firebase.database.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-//It was fixxed!!!!
+// Creating lateinit variables for the database reference, and Array Lists of lawns and lawn images
 private lateinit var databaseReference : DatabaseReference
 private lateinit var lawnArrayList : ArrayList<LawnListing>
 private lateinit var lawnImageList : ArrayList<ListingImage>
+private lateinit var lawnOwnerList : ArrayList<String>
 
 /**
  * A simple [Fragment] subclass.
@@ -66,13 +67,14 @@ class RentALawnFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         lawnArrayList = arrayListOf<LawnListing>()
         lawnImageList = arrayListOf<ListingImage>()
+        lawnOwnerList = arrayListOf<String>()
         binding.ListALawnRecyclerView.apply {
-            adapter = LawnAdapter(lawnArrayList, lawnImageList, context)
+            adapter = LawnAdapter(lawnArrayList, lawnImageList, lawnOwnerList, context)
         }
 
-        super.onViewCreated(view, savedInstanceState)
         binding.ListALawnRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.ListALawnRecyclerView.setHasFixedSize(true)
         getLawnData()
@@ -86,6 +88,8 @@ class RentALawnFragment : Fragment() {
                 lawnImageList.clear()
                 if (snapshot.exists()) {
                     for (lawnSnapshot in snapshot.children) {
+                        val ownerName = lawnSnapshot.key.toString()
+                        lawnOwnerList.add(ownerName)
                         val lawn = lawnSnapshot.getValue(LawnListing::class.java)
                         lawnArrayList.add(lawn!!)
                         val imageUrl = lawnSnapshot.child("Picture").getValue(ListingImage::class.java)
@@ -94,7 +98,7 @@ class RentALawnFragment : Fragment() {
                         } catch (e: java.lang.NullPointerException) {
                             lawnImageList.add(ListingImage(("https://firebasestorage.googleapis.com/v0/b/gggsapplication.appspot.com/o/ImageFolder%2Fimageimage%3A61?alt=media&token=09f0edfd-e15d-407e-bd05-4825651fdc7b")))
                         }
-                        binding.ListALawnRecyclerView.adapter = LawnAdapter(lawnArrayList, lawnImageList, requireContext())
+                        binding.ListALawnRecyclerView.adapter = LawnAdapter(lawnArrayList, lawnImageList, lawnOwnerList, requireContext())
                     }
                 }
             }
@@ -124,10 +128,5 @@ class RentALawnFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding.ListALawnRecyclerView.removeAllViews()
     }
 }
