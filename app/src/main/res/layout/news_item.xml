@@ -24,33 +24,41 @@
                 android:id="@+id/newsNametv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/segoe_ui"
+                android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="27sp"
+                android:textStyle="normal|bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Featured Houses" />
+                tools:text="News Headline" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/newsImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="235dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:contentDescription="Our location on the map"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/newsNametv"
                 app:shapeAppearanceOverlay="@style/roundImageView"
-                tools:srcCompat="@drawable/maplocation"></com.google.android.material.imageview.ShapeableImageView>
+                tools:srcCompat="@drawable/news1image"></com.google.android.material.imageview.ShapeableImageView>
 
             <TextView
                 android:id="@+id/infoAboutNewstv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:fontFamily="@font/segoe_ui"
                 android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"

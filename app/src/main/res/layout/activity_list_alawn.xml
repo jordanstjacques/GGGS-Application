@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/brownishOrange"
-                android:fontFamily="serif"
+                android:fontFamily="@font/segoe_ui"
                 android:text="Fill Out The Following Form To List Your Lawn!"
                 android:textAlignment="center"
                 android:textColor="@color/black"
