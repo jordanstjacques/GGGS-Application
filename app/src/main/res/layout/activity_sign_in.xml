@@ -7,6 +7,15 @@
     tools:context=".SignInActivity"
     android:background="@color/peach">
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:shapeAppearanceOverlay="@style/roundImageView"
+        app:srcCompat="@drawable/accountsigndesign"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,8 +30,8 @@
             android:id="@+id/signInEmailLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
             app:boxCornerRadiusBottomEnd="35dp"
             app:boxCornerRadiusBottomStart="35dp"
             app:boxCornerRadiusTopEnd="35dp"

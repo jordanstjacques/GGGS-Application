@@ -11,6 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:id="@+id/rentALawnSearchBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/ListALawnRecyclerView"
+            app:iconifiedByDefault="false"
+            app:searchHintIcon="@null"
+            app:queryHint="Search..."
+            android:focusable="false"
+            app:closeIcon="@drawable/ic_baseline_clear_24"
+            app:searchIcon="@drawable/ic_baseline_search_24"
+            android:background="@drawable/search_bkg"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ListALawnRecyclerView"
             android:layout_width="match_parent"
@@ -19,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rentALawnSearchBar"
             app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/lawn_listing" />
 

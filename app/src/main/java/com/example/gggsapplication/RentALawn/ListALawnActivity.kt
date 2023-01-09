@@ -19,6 +19,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 class ListALawnActivity : AppCompatActivity() {
+    // Creating all the variables needed
     private lateinit var binding : ActivityListAlawnBinding
     private lateinit var database: DatabaseReference
     private val ImageBack = 1
