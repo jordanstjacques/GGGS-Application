@@ -30,6 +30,7 @@
             android:id="@+id/signInEmailLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="15dp"
             app:boxCornerRadiusBottomEnd="35dp"
